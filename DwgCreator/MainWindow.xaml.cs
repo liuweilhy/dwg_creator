@@ -149,13 +149,33 @@ namespace DwgCreator
         {
             if (dt is null || !Directory.Exists(folder))
                 return;
+
+            string fileName;
+            string shape;
+            double v1 = 0;
+            double v2 = 0;
+            double v3 = 0;
+
             foreach (DataRow row in dt.Rows)
             {
-                string fileName = row[1] as string;
-                string shape = row[2] as string;
-                double v1 = Convert.ToDouble(row[3]);
-                double v2 = Convert.ToDouble(row[4]);
-                double v3 = Convert.ToDouble(row[5]);
+                // 读取数据
+                fileName = row[1] as string;
+                shape = row[2] as string;
+                v1 = v2 = v3 = -1.0;
+                if (row[3] != null && !(row[3] is DBNull))
+                    v1 = Convert.ToDouble(row[3]);
+                if (row[4] != null && !(row[4] is DBNull))
+                    v2 = Convert.ToDouble(row[4]);
+                if (row[5] != null && !(row[5] is DBNull))
+                    v3 = Convert.ToDouble(row[5]);
+
+                fileName = folder + "\\" + fileName + ".dwg";
+                if (shape == "□")
+                    DwgCreate.CreateRactangle(v1, v2, v3, fileName);
+                else if (shape == "○")
+                    DwgCreate.CreateCircle(v1, fileName);
+                else if (shape == "◎")
+                    DwgCreate.CreateRing(v1, v2, fileName);
             }
         }
 
