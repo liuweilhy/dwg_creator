@@ -27,5 +27,5 @@
 3. TD_Mgd
 
 #### 下载地址和联系方式
-1.  下载地址: [https://gitee.com/liuweilhy/dwg_creator/release](https://gitee.com/liuweilhy/dwg_creator/release)
+1.  下载地址: [https://gitee.com/liuweilhy/dwg_creator/releases](https://gitee.com/liuweilhy/dwg_creator/releases)
 2.  联系邮箱：[liuweilhy@163.com](mailto:liuweilhy@163.com)
